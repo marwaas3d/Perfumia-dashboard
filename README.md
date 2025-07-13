@@ -1,29 +1,80 @@
-# Perfumia
+readme_content = """
+# 🧴 Perfumia Dashboard
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.2.
+demo : https://perfume-dashboard.netlify.app/
 
-demo: https://perfumiadashboard.netlify.app/
+This is an Angular dashboard project to manage products for the **Perfumia** store.  
+The backend is built using **Supabase**, allowing full CRUD (Create, Read, Update, Delete) operations on products.
 
-## Development server
+## 🚀 Features
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- ✅ Display list of all products  
+- ➕ Add new product  
+- 📝 Edit existing product  
+- ❌ Delete product  
+- 📡 Connected to **Supabase** Realtime API
 
-## Code scaffolding
+## 🛠️ Technologies Used
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- **Angular** 18  
+- **Supabase**  
+- **TypeScript**  
+- **SCSS**
 
-## Build
+## 🧩 Folder Structure
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+src/
+│
+├── app/
+│ ├── components/ # Reusable components
+│ ├── pages/ # Pages like Products List, Add/Edit
+│ ├── services/ # Supabase service to handle API
+│ └── app.module.ts # Main app module
+│
+├── assets/ 
+├── environments/ # Supabase keys and environment config
+└── index.html
 
-## Running unit tests
+markdown
+Copy
+Edit
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## 🔌 Supabase Setup
 
-## Running end-to-end tests
+1. Go to [supabase.com](https://supabase.com) and create a project  
+2. Create a table called `products` with fields like: 
+   - `name` (text)  
+   - `description` (text)  
+   - `price` (number)  
+   - `Cover Image URL` (text)  
+3. Get your **Project URL** and **Anon Key** from `Project Settings > API`  
+4. Add them to `environment.ts` like:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```ts
+export const environment = {
+  production: false,
+  supabaseUrl: 'https://xyzcompany.supabase.co',
+  supabaseKey: 'your-anon-key-here',
+};
+📦 Install Dependencies
+bash
+Copy
+Edit
+npm install
+▶️ Run the Project
+bash
+Copy
+Edit
+ng serve
+🧪 CRUD Operations
+All operations are done using Supabase JS Client:
 
-## Further help
+insert() → Add a new product
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+select() → Get all products
+
+update() → Edit a product
+
+delete() → Remove a product
+
+These are wrapped inside a service like supabase.service.ts.
